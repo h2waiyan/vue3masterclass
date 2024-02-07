@@ -1,21 +1,20 @@
 <template>
-  <h1>Welcome to Htoo Vue Forum</h1>
-  <forum-list :forums="forums" />
+  <h1 class="push-top">Welcome to Htoo Vue Forum</h1>
+  <category-list :categories="categories" />
 </template>
 
 <script>
-import sourceData from "@/data.json";
-import ForumList from "@/components/ForumList.vue";
+import CategoryList from "@/components/CategoryList.vue";
 
 export default {
   components: {
-    ForumList,
+    CategoryList,
   },
-  data() {
-    return {
-      forums: sourceData.forums,
-    };
-  },
+  computed: {
+    categories () {
+      return this.$store.state.categories
+    }
+  }
 };
 </script>
 

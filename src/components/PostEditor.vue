@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import sourceData from "@/data.json";
 import PostList from "@/components/PostList.vue";
 
 export default {
@@ -32,16 +31,12 @@ export default {
   },
   methods: {
     save() {
-      const postId = "gg" + Math.random();
       const post = {
-        id: postId,
         text: this.text,
         publishedAt: Math.floor(Date.now() / 1000),
         userId: "L664y3qZSubDbT1R6npC0EEybJ73",
       };
       this.$emit("save", {post});
-    //   sourceData.posts.push(post);
-    //   this.thread.posts.push(postId);
       this.text = ""
     },
   },

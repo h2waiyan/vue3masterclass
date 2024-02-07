@@ -28,25 +28,22 @@
             </p>
           </div>
 
-          <div class="post-date text-faded">
-            <app-date :timestamp="post.publishedAt" />
-          </div>
-
           <!-- </blockquote> -->
         </div>
         <!-- <a class="edit-post link-unstyled"><i class="fa fa-pencil"></i></a> -->
+      </div>
+      <div class="post-date text-faded">
+        <app-date :timestamp="post.publishedAt" />
       </div>
     </div>
   </div>
 </template>
 <script>
-import sourceData from "@/data.json";
-
 export default {
-  data() {
-    return {
-      users: sourceData.users,
-    };
+  computed: {
+    users() {
+      return this.$store.state.users;
+    },
   },
   props: {
     posts: {
@@ -57,7 +54,7 @@ export default {
   methods: {
     userById(userId) {
       return this.users.find((u) => u.id === userId);
-    }
+    },
   },
 };
 </script>
